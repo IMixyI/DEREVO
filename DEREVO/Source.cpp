@@ -12,7 +12,7 @@ class MyTrees
 		Uzel(int data, Uzel* ptr) { this->data = data; this->per = ptr; this->men = nullptr; this->bol = nullptr; }
 		~Uzel()
 		{
-			if (this->per != nullptr) { if (this->per->bol == this) { this->per->bol = nullptr; } else { this->per->men = nullptr; } }
+			if (this->per != nullptr) { if (this->per->bol == this) { this->per->bol = nullptr; } else if (this->per->men==this){ this->per->men = nullptr; } }
 			if (this->men != nullptr) { this->men->per = nullptr; }
 			if (this->bol != nullptr) { this->bol->per = nullptr; }
 		}
@@ -540,7 +540,7 @@ int main()
 			{
 				cout << trees.findUzel(uz) << endl;
 			}
-			else { cout << "Íåò óçëà" << endl; }
+			else { cout << "ÃÃ¥Ã² Ã³Ã§Ã«Ã " << endl; }
 		}
 		cin>>com;
 	}
